@@ -1,0 +1,59 @@
+<?php
+namespace App\Http\Controllers;
+
+//use App\Student;//使用student 模型
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+
+
+class StudentController extends Controller
+{
+
+    public function request1(Request $request)
+    {
+        // if($request->has('name')){
+        // 	echo $request->input('name');
+        // }else{
+        // 	echo 'null';
+        // }
+        $res = $request->all();
+        dd($res);
+        echo 111;
+    }
+
+    public function session1(Request $request)
+    {
+        echo 'session1';
+    }
+
+    public function session2(Request $request)
+    {
+        // return Session::get('message');
+        echo $request->session()->get('message', 'default');
+        return 11;
+    }
+
+    public function response()
+    {
+        $data = ['name' => 'sean', 'age' => 12];
+        //dd($data);
+        //return  response()->json($data);
+        //return json_encode($data);
+        //return redirect('session2')->with('message','i am flash data');
+        // return redirect()->action('StudentController@session2')->with('message','i am flash data');
+        return redirect()->Route('session2')->with('message', 'i am flash data');
+    }
+
+    public function activity0(){
+        return '什么也没有!!';
+    }
+    public function activity1(){
+        return '活动已经开始了!!';
+    }
+
+    public function activity2(){
+        return '活动尚未开始!!';
+    }
+
+} 
