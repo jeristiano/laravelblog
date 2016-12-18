@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/student/index/{id}',function($id){
+    return $id;
+});
