@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student/index/{id}',function($id){
-    return $id;
-});
+Route::get('admin/index','Admin\IndexController@index');
+
+/*
+ *后台登录路由
+ */
+
+Route::get('admin/login','Admin\LoginController@login');
+Route::get('admin/code','Admin\LoginController@code');
+Route::get('admin/getCode','Admin\LoginController@getCode');
