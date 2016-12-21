@@ -13,7 +13,7 @@ class Code{
 	//验证码
 	private $code;
 	//验证码的随机种子
-	private $codeStr='23456789abcdefghjkmnpqrstuvwsyz';
+	private $codeStr='0123456789abcdefghjkmnpqrstuvwsyz';
 	//验证码长度
 	private $codeLen=4;
 	//验证码字体
