@@ -19,3 +19,13 @@
             错误！{{ Session::get('error') }}
         </div>
     @endif
+
+    @if (count($errors))
+        <div id='bg-notice' class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert"
+                    aria-hidden="true">
+                &times;
+            </button>
+            ！{{ $errors->first('User.name') }} &nbsp;&nbsp;{{ $errors->first('User.password') }}&nbsp;&nbsp;{{ $errors->first('User.code') }}
+        </div>
+    @endif
