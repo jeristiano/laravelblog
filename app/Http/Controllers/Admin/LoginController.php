@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Model\User;
-use Crypt;
+use Illuminate\Support\Facades\Crypt;
+
 
 require_once 'resources/org/code/Code.class.php';
 
@@ -49,9 +50,9 @@ class LoginController extends CommonController
             $admin = User::first();
             if ($admin->name != $input['name'] || Crypt::decrypt($admin->password) != $input['password']) {
                 return redirect()->back()->with('error', '用户名或密码错误')->withInput();
-            }else{
-                $request->session()->put(['name'=>$admin->name,'user_id'=>$admin->user_id]);
-                redirect('admin/index');
+            } else {
+                $request->session()->put(['admin' => $admin->name]);
+                return redirect('admin/index');
             }
         }
         return view('admin.login');

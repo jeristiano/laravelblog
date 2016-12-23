@@ -9,11 +9,14 @@
 	<script src="{{ asset('public/static/jquery/jquery.min.js') }}"></script>
 	<script src="{{ asset('public/static/bootstrap/bootstrap.js') }}"></script>
 </head>
+<style>
+    body{background: url('{{url('public/static/img/admin/bj_01.jpg')}}') 0 / cover fixed; }
+</style>
 <body>
 
 <div class="container" >
 	<div class="row" style='margin-top:10px;'>
-		@include('common.message')
+		@include('layouts.message')
 	</div>
 	<div class="row " style='margin-top:150px;'>
 		<div class=" col-md-4"></div>
