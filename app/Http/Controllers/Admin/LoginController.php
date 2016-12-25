@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Requests;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Model\User;
@@ -51,7 +50,7 @@ class LoginController extends CommonController
             if ($admin->name != $input['name'] || Crypt::decrypt($admin->password) != $input['password']) {
                 return redirect()->back()->with('error', '用户名或密码错误')->withInput();
             } else {
-                $request->session()->put(['admin' => $admin->name]);
+                $request->session()->put(['admin' => $admin]);
                 return redirect('admin/index');
             }
         }
