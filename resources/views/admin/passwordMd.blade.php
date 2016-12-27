@@ -12,7 +12,7 @@
     <div class="result_title">
         <h3>修改密码</h3>
         @if(count($errors)>0)
-            <div class="mark">
+            <div class="mark " >
                 @if(is_object($errors))
                     @foreach($errors->all() as $error)
                         <p>{{$error}}</p>
@@ -21,6 +21,12 @@
                     <p>{{$errors}}</p>
                 @endif
             </div>
+        @endif
+       {{-- {{返回错误信息}}--}}
+        @if(Session::has('error'))
+        <div class="mark ">
+           <p>{{ Session::get('error') }}</p>
+        </div>
         @endif
     </div>
 </div>

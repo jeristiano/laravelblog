@@ -59,7 +59,9 @@
 
 <!--底部 开始-->
 <div class="bottom_box">
+
     <span class="text-warning"><b>未来是害怕的根源,谁不顾未来,谁就天不怕地不怕。《慢》 ---米兰·昆德拉</b> </span>
 </div>
+
 <!--底部 结束-->
 @endsection

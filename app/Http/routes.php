@@ -9,7 +9,6 @@
 Route::any('admin/login','Admin\LoginController@login');
 Route::any('admin/code','Admin\LoginController@code');
 Route::any('admin/getCode','Admin\LoginController@getCode');
-Route::any('admin/session','Admin\IndexController@session');
 
 
 /*
@@ -21,8 +20,8 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::get('logout','IndexController@logout');
     Route::any('passwordMd','IndexController@passwordMd');
 });
-//
-//Route::get('admin/index','Admin\IndexController@index');
-//Route::get('admin/info','Admin\IndexController@info');
-//Route::get('admin/logout','Admin\IndexController@logout');
-//Route::any('admin/passwordMd','Admin\IndexController@passwordMd');
+
+/*
+ * 文章分类路由
+ */
+Route::resource('admin/category', 'Admin\CategoryController@index');
