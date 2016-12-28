@@ -14,14 +14,15 @@ Route::any('admin/getCode','Admin\LoginController@getCode');
 /*
  * 后台登录中间件
  */
-Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function () {
+Route::group(['middlewareGroups'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function () {
     Route::get('index','IndexController@index');
     Route::get('info','IndexController@info');
     Route::get('logout','IndexController@logout');
     Route::any('passwordMd','IndexController@passwordMd');
+    Route::resource('category', 'CategoryController@index');
+    Route::post('changeOrder','CategoryController@changeOrder');
 });
 
 /*
  * 文章分类路由
  */
-Route::resource('admin/category', 'Admin\CategoryController@index');

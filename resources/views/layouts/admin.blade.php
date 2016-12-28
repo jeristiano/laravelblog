@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('public/static/font/css/font-awesome.min.css') }}">
     <script type="text/javascript" src="{{ asset('public/static/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/static/js/common.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/org/layer/layer.js') }}"></script>
 </head>
 <body>
 

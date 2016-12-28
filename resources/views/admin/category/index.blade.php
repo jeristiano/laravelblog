@@ -61,10 +61,10 @@
                     <tr>
                         <td class="tc"><input type="checkbox" name="id[]" value="59"></td>
 
-                        <td class="tc">{{$v->cate_order}}</td>
+                        <td class="tc "><input style='width:60px;' class='order' type="text" name=ord[] data-cid="{{$v->cate_id}}" value="{{$v->cate_order}}"></td>
                         <td class="tc">{{$v->cate_id}}</td>
                         <td>
-                            <a href="#">{{$v->cate_name}}</a>
+                            <a href="#">{{$v->_cate_name}}</a>
                         </td>
                         <td>{{$v->cate_title}}</td>
                         <td>{{$v->cate_view}}</td>
@@ -106,5 +106,28 @@
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+    <script>
+     $(function(){
+         $('.order').change(function(){
+             var url="{{ url('admin/changeOrder') }}";
+             var cid=$(this).attr('data-cid');
+             var order=$(this).val();
+             var data={'_token':'{{csrf_token()}}','cate_id':cid,'cate_order':order};
+               if(!isNaN(order)){
+                   $.post(url,data,function(rs){
+                       if(rs.status==1){
+                           layer.alert(rs.msg,{icon:6});
+                       }else{
+                           layer.alert(rs.msg,{icon:5});
+                       }
+                   })
+           }else {
+                   layer.alert('必须为数字');
+               }
+
+
+         })
+     })
+    </script>
 @endsection
 
