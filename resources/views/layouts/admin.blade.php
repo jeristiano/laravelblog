@@ -10,6 +10,9 @@
     <script type="text/javascript" src="{{ asset('public/static/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/static/js/common.js') }}"></script>
     <script type="text/javascript" src="{{ asset('resources/org/layer/layer.js') }}"></script>
+    @section('style')
+
+    @show
 </head>
 <body>
 

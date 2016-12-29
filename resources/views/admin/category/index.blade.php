@@ -2,7 +2,7 @@
 @section('content')
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a> &raquo; <a href="#">分类管理</a> &raquo; 添加商品
+        <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a>&raquo; 分类列表
     </div>
     <!--面包屑导航 结束-->
 
@@ -32,7 +32,7 @@
     <form action="#" method="post">
         <div class="result_wrap">
             <div class="result_title">
-                <h3>快捷操作</h3>
+                <h3>分类列表</h3>
             </div>
             <!--快捷导航 开始-->
             <div class="result_content">
@@ -116,17 +116,25 @@
                if(!isNaN(order)){
                    $.post(url,data,function(rs){
                        if(rs.status==1){
-                           layer.alert(rs.msg,{icon:6});
+                           layer.msg(rs.msg);
                        }else{
-                           layer.alert(rs.msg,{icon:5});
+                           layer.msg(rs.msg);
                        }
                    })
            }else {
-                   layer.alert('必须为数字');
+                   layer.msg('必须为数字');
                }
 
 
          })
+        //添加成功信息
+        var session ='{{Session::has('success')}}';
+         var msg='{{ Session::get('success') }}'
+         if(session){
+             layer.msg(msg);
+         }
+
+
      })
     </script>
 @endsection

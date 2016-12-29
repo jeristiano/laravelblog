@@ -9,6 +9,7 @@ class Category extends Model
     protected $table = 'category';
     protected $primaryKey = 'cate_id';
     public $timestamps = false;
+    protected $guarded=[];
 
     /*
      * @获得分类方法模型

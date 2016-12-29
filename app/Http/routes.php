@@ -19,7 +19,7 @@ Route::group(['middlewareGroups'=>['web','admin.login'],'prefix'=>'admin','names
     Route::get('info','IndexController@info');
     Route::get('logout','IndexController@logout');
     Route::any('passwordMd','IndexController@passwordMd');
-    Route::resource('category', 'CategoryController@index');
+    Route::resource('category', 'CategoryController');
     Route::post('changeOrder','CategoryController@changeOrder');
 });
 
