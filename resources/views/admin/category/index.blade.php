@@ -69,39 +69,12 @@
                         <td>{{$v->cate_title}}</td>
                         <td>{{$v->cate_view}}</td>
                         <td>
-                            <a href="#">修改</a>
-                            <a href="#">删除</a>
+                            <a href="{{ url('admin/category/'.$v->cate_id.'/edit') }}">修改</a>
+                            <a href="javascript:;" class='del_cate{{$v->cate_id}}' onclick="del_cate({{$v->cate_id}})">删除</a>
                         </td>
                     </tr>
                     @endforeach
                 </table>
-
-
-                <div class="page_nav">
-                    <div>
-                        <a class="first" href="/wysls/index.php/Admin/Tag/index/p/1.html">第一页</a>
-                        <a class="prev" href="/wysls/index.php/Admin/Tag/index/p/7.html">上一页</a>
-                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/6.html">6</a>
-                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/7.html">7</a>
-                        <span class="current">8</span>
-                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/9.html">9</a>
-                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/10.html">10</a>
-                        <a class="next" href="/wysls/index.php/Admin/Tag/index/p/9.html">下一页</a>
-                        <a class="end" href="/wysls/index.php/Admin/Tag/index/p/11.html">最后一页</a>
-                        <span class="rows">11 条记录</span>
-                    </div>
-                </div>
-                <div class="page_list">
-                    <ul>
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </form>
@@ -134,8 +107,34 @@
              layer.msg(msg);
          }
 
+         //添加成功信息
+         var session1 ='{{Session::has('error')}}';
+         var msg='{{ Session::get('error') }}'
+         if(session1){
+             layer.msg(msg);
+         }
 
      })
+     //删除分类
+     var  del_cate=  function(id){
+         layer.confirm('您确定要删除这个分类吗？', {
+             btn: ['确定','取消'] //按钮
+         },function(){
+             var url ='{{ url('admin/category/')}}/'+id;
+             var data={'_method':'delete','_token':"{{ csrf_token() }}"};
+             $.post(url,data,function(rs){
+                    if(rs.status==1){
+                        $('.del_cate'+id).parent().parent().remove();
+                        layer.msg(rs.msg);
+                    }else{
+                        layer.msg(rs.msg);
+                    }
+
+             })
+         })
+     }
+
+
     </script>
 @endsection
 

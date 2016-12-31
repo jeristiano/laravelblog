@@ -58,20 +58,41 @@ class CategoryController extends CommonController
     }
 
     //admin.category.destroy
-    public function destroy()
+    public function destroy($id)
     {
+       $result= Category::where(['cate_pid'=>$id])->count();
 
+        if($result){
+            $msg=['status'=>0,'msg'=>'该分类下仍有子分类不能删除'];
+        }else{
+            $res = Category::where(['cate_id'=>$id])->delete();
+            if($res){
+                $msg=['status'=>1,'msg'=>'删除成功'];
+            }else{
+                $msg=['status'=>0,'msg'=>'删除失败,请重试!'];
+            }
+        }
+        return $msg;
     }
 
     //admin.category.update
-    public function update()
+    public function update(Request $request,$id)
     {
-
+        $input = $request->except('_method','_token');
+        $result=Category::where(['cate_id'=>intval($id)])->update($input);
+        if($result){
+            return redirect('admin/category')->with('success','修改成功');
+        }else{
+            return redirect('admin/category')->with('error','修改失败');
+        }
     }
 
     //admin.category.edit
-    public function edit()
+    public function edit($cate_id)
     {
+        $info=Category::find($cate_id);
+        $cate = Category::where(['cate_pid' => 0])->get();
+        return view('admin.category.edit',['data'=>$cate,'info'=>$info]);
 
     }
 
