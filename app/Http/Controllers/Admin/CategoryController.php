@@ -51,13 +51,7 @@ class CategoryController extends CommonController
         return view('admin.category.add', ['data'=>$cate]);
     }
 
-    //admin.category.show
-    public function show()
-    {
-
-    }
-
-    //admin.category.destroy
+    //删除文章分类
     public function destroy($id)
     {
        $result= Category::where(['cate_pid'=>$id])->count();
@@ -75,7 +69,7 @@ class CategoryController extends CommonController
         return $msg;
     }
 
-    //admin.category.update
+    //文章分类更新
     public function update(Request $request,$id)
     {
         $input = $request->except('_method','_token');
@@ -87,7 +81,7 @@ class CategoryController extends CommonController
         }
     }
 
-    //admin.category.edit
+    //文章分类编辑
     public function edit($cate_id)
     {
         $info=Category::find($cate_id);

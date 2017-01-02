@@ -44,4 +44,15 @@ class Category extends Model
         }
         return $arr;
     }
+
+    /*
+    * @根据分类id获得分类的名字
+    * @para int $cate_id 数据数组
+    * @return string $cate_name组
+    */
+
+    public static function getCateName($cate_id){
+        $cate_name = Category::where(['cate_id'=>$cate_id])->value('cate_name');
+        return $cate_name;
+    }
 }

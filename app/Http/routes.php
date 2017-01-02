@@ -20,7 +20,10 @@ Route::group(['middlewareGroups'=>['web','admin.login'],'prefix'=>'admin','names
     Route::get('logout','IndexController@logout');
     Route::any('passwordMd','IndexController@passwordMd');
     Route::resource('category', 'CategoryController');
+    Route::resource('article', 'ArticleController');
     Route::post('changeOrder','CategoryController@changeOrder');
+    Route::any('upload','CommonController@upload');
+
 });
 
 /*
