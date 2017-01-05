@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="crumb_warp">
-    <i class="fa fa-home"></i> <a href="#">首页</a> &raquo;  编辑友情链接
+    <i class="fa fa-home"></i> <a href="{{ url('admin/info') }}">首页</a> &raquo;  编辑友情链接
 </div>
 
 <div class="result_wrap">

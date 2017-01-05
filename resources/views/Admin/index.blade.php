@@ -27,7 +27,7 @@
             <ul class="sub_menu">
                 <li><a href="{{ url('admin/category/create') }}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
                 <li><a href="{{ url('admin/category') }}" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
-                <li><a href="{{ url('admin/article/create') }}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加文章</a></li>
+                <li><a href="{{ url('admin/article/create') }}" target="main"><i class="fa fa-fw fa-pencil-square-o"></i>添加文章</a></li>
                 <li><a href="{{ url('admin/article') }}" target="main"><i class="fa fa-fw fa-list-ul"></i>文章列表</a></li>
             </ul>
         </li>
@@ -36,6 +36,7 @@
             <ul class="sub_menu">
                 <li><a href="#" target="main"><i class="fa fa-fw fa-cubes"></i>网站配置</a></li>
                 <li><a href="{{ url('admin/links') }}" target="main"><i class="fa fa-fw fa-chain"></i>友情链接</a></li>
+                <li><a href="{{ url('admin/navi') }}" target="main"><i class="fa fa-fw fa-paper-plane"></i>自定义导航</a></li>
                 <li><a href="#" target="main"><i class="fa fa-fw fa-database"></i>备份还原</a></li>
             </ul>
         </li>
