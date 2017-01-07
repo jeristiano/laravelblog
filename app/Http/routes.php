@@ -24,8 +24,10 @@ Route::group(['middleware'=>['admin.login'],'prefix'=>'admin','namespace'=>'Admi
     Route::resource('links', 'LinksController');
     Route::post('changeSort','LinksController@changeSort');
     Route::resource('navi', 'NaviController');
-    Route::post('changeSort','NaviController@changeSort');
+    Route::post('navi/changeSort','NaviController@changeSort');
     Route::post('changeOrder','CategoryController@changeOrder');
+    Route::resource('config', 'ConfigController');
+    Route::post('config/changeSort','ConfigController@changeSort');
     Route::any('upload','CommonController@upload');
 
 });
