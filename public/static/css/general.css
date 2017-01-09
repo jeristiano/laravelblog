@@ -1,0 +1,8 @@
+.input-group{width:300px;margin-top:14px;}
+.form{margin:0px 45px;}
+.frm{border:1px solid #efefef;border-radius:4px;box-shadow: 4px 4px 10px #484848;background:#f6f6f6;}
+
+/*提示框样式 */
+  #bg-notice{position: fixed;left:35%;width:30%}
+.mark{position: absolute;top:75px;left:170px;}
+.bgtitle{height:40px;line-height: 40px;color:dimgrey;padding-left:20px;border-radius: 2px;}
