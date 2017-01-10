@@ -92,6 +92,7 @@ class ConfigController extends CommonController
             return redirect()->back()->withErrors($validate)->withInput();
         } else {
             if (Config::where(['conf_id' => $id])->update($input)) {
+                $this->putFile();
                 return redirect('admin/config')->with('success', '配置项修改成功');
             } else {
                 return redirect('admin/config')->with('error', '配置项修改失败,请重试');
@@ -103,6 +104,7 @@ class ConfigController extends CommonController
     {
         $result = Config::where('conf_id', $id)->delete();
         if ($result) {
+            $this->putFile();
             $msg = [
                 'status' => 1,
                 'msg' => '删除成功'
@@ -134,7 +136,7 @@ class ConfigController extends CommonController
         foreach($input['conf_id'] as $k=>$v){
            Config::where(['conf_id'=>$v])->update(['conf_content'=>$input['conf_content'][$k]]);
         }
-        //dd($input);
+        $this->putFile();
         return redirect()->back()->with('success','配置项更新成功');
 	}
     //写入到config配置项文件

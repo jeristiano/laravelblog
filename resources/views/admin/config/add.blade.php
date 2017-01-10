@@ -73,7 +73,7 @@
             <tr>
                 <th>说明：</th>
                 <td>
-                    <textarea id="" cols="30" rows="10" name="conf_tips">value="{{old('conf_tips')}}"</textarea>
+                    <textarea id="" cols="30" rows="10" name="conf_tips">{{old('conf_tips')}}"</textarea>
                 </td>
             </tr>
             <tr>
