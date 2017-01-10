@@ -17,8 +17,9 @@ class LoginController extends CommonController
     */
     public function login(Request $request)
     {
-      // print_r(Crypt::encrypt(123456));
-		//判断是否为post请求
+
+        //判断是否为post请求
+
         if ($request->isMethod('POST')) {
             $validator = \Validator::make($request->input(), [
                 'User.name' => 'required|min:2|max:20',
@@ -47,8 +48,7 @@ class LoginController extends CommonController
                 return redirect()->back()->with('error', '验证码错误')->withInput();
             }
             //实例化模型
-			
-			
+
             $admin = User::first();
             if ($admin->name != $input['name'] || Crypt::decrypt($admin->password) != $input['password']) {
                 return redirect()->back()->with('error', '用户名或密码错误')->withInput();

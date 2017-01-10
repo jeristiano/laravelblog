@@ -916,8 +916,10 @@
             },
             "dist": {
                 "type": "zip",
+
                 "url": "https://packagist.phpcomposer.com/files/swiftmailer/swiftmailer/cd142238a339459b10da3d8234220963f392540c.zip",
                 "reference": "cd142238a339459b10da3d8234220963f392540c",
+
                 "shasum": ""
             },
             "require": {
@@ -1948,8 +1950,13 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://packagist.phpcomposer.com/files/padraic/mockery/4de7969f4664da3cef1ccd83866c9f59378c3371.zip",
                 "reference": "4de7969f4664da3cef1ccd83866c9f59378c3371",
+=======
+                "url": "https://packagist.phpcomposer.com/files/padraic/mockery/65d4ca18e15cb02eeb1e5336f884e46b9b905be0.zip",
+                "reference": "65d4ca18e15cb02eeb1e5336f884e46b9b905be0",
+>>>>>>> ad7f07dbcab598e049aa1f4b563e40ef11168c11
                 "shasum": ""
             },
             "require": {
@@ -2001,7 +2008,11 @@
                 "test double",
                 "testing"
             ],
+<<<<<<< HEAD
             "time": "2016-12-19 14:50:55"
+=======
+            "time": "2016-09-30 12:09:40"
+>>>>>>> ad7f07dbcab598e049aa1f4b563e40ef11168c11
         },
         {
             "name": "phpdocumentor/reflection-common",
