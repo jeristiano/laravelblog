@@ -16,7 +16,7 @@ class ConfigController extends CommonController
         foreach($data as $k=>$v){
             switch($v->field_type){
                 case 'input':
-                    $data[$k]->_html= "<input type='text' class=\"lg\" name='conf_content[]' value=".$v->conf_content.">";
+                    $data[$k]->_html= "<input type='text'  class=\"pull-left lg\" name='conf_content[]' value=".$v->conf_content.">";
                     break;
                 case 'textarea':
                     $data[$k]->_html = '<textarea type="text" class="lg" name="conf_content[]">'.$v->conf_content.'</textarea>';
@@ -129,8 +129,19 @@ class ConfigController extends CommonController
     }
 
 	//index列表页内容更改
-	public function changecontent(){
-		dd($_POST);
+	public function changecontent(Request $request){
+        $input = $request->except('_token');
+        foreach($input['conf_id'] as $k=>$v){
+           Config::where(['conf_id'=>$v])->update(['conf_content'=>$input['conf_content'][$k]]);
+        }
+        //dd($input);
+        return redirect()->back()->with('success','配置项更新成功');
 	}
-
+    //写入到config配置项文件
+    public function putFile(){
+       $config = Config::pluck('conf_content','conf_name')->all();
+        $path=base_path().'\config\web.php';
+        $data='<?php return '.var_export($config,true).';';
+        file_put_contents($path,$data);
+    }
 }
