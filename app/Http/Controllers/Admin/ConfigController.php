@@ -127,5 +127,8 @@ class ConfigController extends CommonController
         }
         return $msg;
     }
-
+	//index列表页内容更改
+	public function changecontent(){
+		dd($_POST);
+	}
 }

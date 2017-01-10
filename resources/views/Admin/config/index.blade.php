@@ -3,12 +3,14 @@
     <div class="crumb_warp">
         <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a>&raquo;网站配置
     </div>
-    <form action="#" method="post">
+   
         <div class="result_wrap">
             <div class="result_title">
                 <h3 class="bg-info bgtitle">配置项列表</h3>
             </div>
             <div class="result_content">
+			  <form action="{{url('admin/config/changecontent')}}" method="post">
+                {{csrf_field()}}
                 <div class="short_wrap">
                     <a href="{{url('admin/config/create')}}"><i class="fa fa-plus"></i>添加网站配置</a>
                 </div>
@@ -33,7 +35,10 @@
                             <a href="#">{{$v->conf_title}}</a>
                         </td>
                         <td class="tc ">{{$v->conf_name}}</td>
-                        <td class="tc "> {!!$v->_html!!}</td>
+                        <td class="tc ">
+						 <input type="hidden" name="conf_id[]" value="{{$v->conf_id}}">
+						{!!$v->_html!!}
+						</td>
                         <td class="tc ">
                             <a href="{{ url('admin/config/'.$v->conf_id.'/edit') }}">修改</a>
                             <a href="javascript:;" class='del_config{{$v->conf_id}}' onclick="del_config({{$v->conf_id}})">删除</a>
@@ -41,10 +46,14 @@
                     </tr>
                     @endforeach
                 </table>
-
+				 <div class="btn_group">
+                <input type="submit" value="提交">
+                <input type="button" class="back" onclick="history.go(-1)" value="返回" >
+            </div>
+            </form>
             </div>
         </div>
-    </form>
+  
     <script>
      $(function(){
          $('.order').change(function(){
