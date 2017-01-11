@@ -33,7 +33,6 @@ Route::group(['middleware'=>['admin.login'],'prefix'=>'admin','namespace'=>'Admi
     Route::get('putFile','ConfigController@putFile');
 
 });
-
-/*
- * 文章分类路由
- */
+Route::group(['middleware'=>['web']],function(){
+    Route::get('/','Home\IndexController@index');
+});
