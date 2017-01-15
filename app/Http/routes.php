@@ -35,4 +35,6 @@ Route::group(['middleware'=>['admin.login'],'prefix'=>'admin','namespace'=>'Admi
 });
 Route::group(['middleware'=>['web']],function(){
     Route::get('/','Home\IndexController@index');
+    Route::get('/cate/{cate_id}','Home\IndexController@cate');
+    Route::get('/article/{art_id}','Home\IndexController@article');
 });

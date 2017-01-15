@@ -7,15 +7,14 @@
     <link href="{{asset('resources/static/css/home/index.css')}}" rel="stylesheet">
     <link href="{{asset('resources/static/css/home/style.css')}}" rel="stylesheet">
     <link href="{{asset('resources/static/css/home/new.css')}}" rel="stylesheet">
-    <!--[if lt IE 9]>
     <script src="{{asset('resources/static/js/modernizr.js')}}"></script>
-    <![endif]-->
+
 </head>
 <body>
 <header>
     <div id="logo"><a href="{{url('/')}}"></a></div>
     <nav class="topnav" id="topnav">
-        @foreach($navs as $k=>$v)<a href="{{$v->nav_url}}"><span>{{$v->nav_name}}</span><span class="en">{{$v->nav_alias}}</span></a>@endforeach
+        @foreach($navi as $k=>$v)<a href="{{$v->nv_url}}"><span>{{$v->nv_name}}</span><span class="en">{{$v->nv_alias}}</span></a>@endforeach
     </nav>
 </header>
 
@@ -25,7 +24,7 @@
     </h3>
     <ul class="rank">
         @foreach($new as $n)
-            <li><a href="{{url('a/'.$n->art_id)}}" title="{{$n->art_title}}" target="_blank">{{$n->art_title}}</a></li>
+            <li><a href="{{url('article/'.$n->art_id)}}" title="{{$n->art_title}}" target="_blank">{{$n->art_title}}</a></li>
         @endforeach
     </ul>
     <h3 class="ph">
@@ -33,7 +32,7 @@
     </h3>
     <ul class="paih">
         @foreach($hot as $h)
-            <li><a href="{{url('a/'.$h->art_id)}}" title="{{$h->art_title}}" target="_blank">{{$h->art_title}}</a></li>
+            <li><a href="{{url('article/'.$h->art_id)}}" title="{{$h->art_title}}" target="_blank">{{$h->art_title}}</a></li>
         @endforeach
     </ul>
 @show

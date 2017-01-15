@@ -23,7 +23,7 @@
                         <th class="tc">排序</th>
                         <th>标题</th>
                         <th>名称</th>
-                        <th>类型</th>
+                        <th>内容</th>
                         <th>操作</th>
                     </tr>
                     @foreach($data as $v)
