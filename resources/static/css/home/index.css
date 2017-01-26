@@ -1,7 +1,7 @@
 @charset "gb2312";
 .banner { background: url(../../img/home/banner_top.jpg) top center; height: 265px; overflow: hidden }
-.texts { width: 350px; line-height: 26px; margin: 60px 0 0 20px; float: left; font-size: 14px; }
-.texts p { -webkit-transform: translate(60px); -moz-transform: translate(60px); -o-transform: translate(60px); -ms-transform: translate(60px); transform: translate(60px); text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 2px 2px 3px rgba(180, 151, 151, 0.3); }
+.texts { width: 400px; line-height: 26px; margin: 60px 0 0 20px; float: left; font-size: 14px; }
+.texts p { -webkit-transform: translate(60px); -moz-transform: translate(60px); -o-transform: translate(60px); -ms-transform: translate(60px); transform: translate(60px);  }
 .texts p:nth-child(1) { -webkit-animation: animations 3s ease-out 1s backwards; -moz-animation: animations 3s ease-out 1s backwards; -o-animation: animations 3s ease-out 1s backwards; -ms-animation: animations 3s ease-out 1s backwards; animation: animations 3s ease-out 1s backwards; }
 .texts p:nth-child(2) { -webkit-animation: animations 3s ease-out 4s backwards; -moz-animation: animations 3s ease-out 4s backwards; -o-animation: animations 3s ease-out 4s backwards; -ms-animation: animations 3s ease-out 4s backwards; animation: animations 3s ease-out 4s backwards; }
 .texts p:nth-child(3) { -webkit-animation: animations2 5s ease-in-out 7s backwards; -moz-animation: animations2 5s ease-in-out 7s backwards; -o-animation: animations2 5s ease-in-out 7s backwards; -ms-animation: animations2 5s ease-in-out 7s backwards; animation: animations2 5s ease-in-out 7s backwards; }
@@ -221,4 +221,5 @@ a.readmore { background: #fd8a61; color: #fff; padding: 5px 10px; float: right; 
 .website { margin: 10px 0; background: #F3F3F3; border-radius: 50%; text-align: center; }
 .website li { line-height: 26px; text-shadow: #fff 1px 1px 1px; height: 26px; }
 .weixin { background: url(../../img/home/weixin.jpg) no-repeat; width: 100%; display: inline-block; height: 274px; overflow: hidden; margin: 10px 0; clear: both }
+.texts p{color:#F3F3F3;font-family: "Î¢ÈíÑÅºÚ", Arial, Helvetica, sans-serif}
 

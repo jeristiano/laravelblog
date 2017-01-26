@@ -8,11 +8,11 @@
     <div class="banner">
         <section class="box">
             <ul class="texts">
-                <p>未来是害怕的根源</p>
-                <p>谁不顾未来,谁就天不怕地不怕</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;米兰·昆德拉 《慢》</p>
+                <p>沟通，是人类最大最长久的梦想</p>
+                <p>互联网的本质 即是突破一切障碍  </p>
+                <p>让人类沟通的工具 它是不需要谁允许的</p>
             </ul>
-            <div class="avatar"><a href="#"><span>卡夫卡</span></a> </div>
+            <div class="avatar"><a href="#"><span>Jeremy</span></a> </div>
         </section>
     </div>
     <div class="template">
@@ -22,7 +22,7 @@
             </h3>
             <ul>
                 @foreach($pic as $v)
-                    <li><a href="{{url('article/'.$v->art_id)}}"  target="_blank"><img src="{{asset('storage/uploads').'/'.$v->art_thumb}}"></a><span>{{$v->art_title}}</span></li>
+                    <li><a href="{{url('article/'.$v->art_id)}}"  target="_blank"><img src="{{asset('storage/app/public/uploads').'/'.$v->art_thumb}}"></a><span>{{$v->art_title}}</span></li>
                     @endforeach
             </ul>
         </div>
@@ -35,7 +35,7 @@
             @foreach($data as $d)
             <div class="page">
                 <h3 style="text-align: left">{{$d->art_title}}</h3>
-                <figure><img src="{{asset('storage/uploads').'/'.$d->art_thumb}}"></figure>
+                <figure><img src="{{asset('storage/app/public/uploads').'/'.$d->art_thumb}}"></figure>
                 <ul>
                     <p>{{$d->art_description}}</p>
                     <a title="{{$d->art_title}}" href="{{url('article/'.$d->art_id)}}" target="_blank" class="readmore">阅读全文>></a>

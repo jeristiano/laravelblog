@@ -72,7 +72,7 @@
             <tr>
                 <th><i class="require">*</i>作者：</th>
                 <td>
-                    <input type="text"  required  name="art_editor" value="{{old('art_editor')}}">
+                    <input type="text" readonly  required  name="art_editor" value="{{old('art_editor')}}">
                 </td>
             </tr>
             <tr>
@@ -80,10 +80,14 @@
                 <td>
                     <input type="text" size="60" name="art_thumb" value="{{old('art_thumb')}}">
                     <input id="file_upload" name="file_upload" type="file" multiple="true" >
-                    <img src="{{ asset('storage/app/public/uploads') }}/{{old('art_thumb')}}" id="art_thumb_img" class='img-thumbnail' style="max-width: 350px; max-height:100px;">
+                    @if(old('art_thumb'))
+                        <img src="{{ asset('storage/app/public/uploads') }}/{{old('art_thumb')}}" id="art_thumb_img" class='img-thumbnail' style="max-width: 350px; max-height:100px;">
+                        @else
+                        <img src="" id="art_thumb_img" class='img-thumbnail' style="max-width: 350px; max-height:100px;">
+                        @endif
+
                 </td>
             </tr>
-
             <tr>
                 <th>标签：</th>
                 <td>
@@ -92,18 +96,17 @@
             <tr>
                 <th>描述：</th>
                 <td>
-                    <input  type="text" size="80" name="art_description" value="{{old('art_description')}}">
+                    <textarea name="art_description" class="form-control" rows="3" style="width:500px">{{old('art_description')}}</textarea>
                 </td>
             </tr>
 
             <tr>
                 <th ></th>
                 <td>
-                    <script id="editor" name="art_content" type="text/plain" style="width:860px;height:500px;"> {!! old('art_content') !!}}}</script>
+                    <script id="editor" name="art_content" type="text/plain" style="width:860px;height:500px;"> {!! old('art_content') !!}</script>
                     <script type="text/javascript">
                         var ue = UE.getEditor('editor');
                     </script>
-
                 </td>
             </tr>
             <tr>
@@ -125,15 +128,14 @@
                 'buttonText' : '图片上传',
                 'formData'     : {
                     'timestamp' : timesamp,
-                    '_token'     : "{{ csrf_token()}}"
+                    '_token' : "{{ csrf_token()}}"
                 },
-                'swf'      : "{{asset('resources/org/uploadify/uploadify.swf')}}",
-                'uploader' : "{{ url('admin/upload') }}",
+                'swf'   : "{{asset('resources/org/uploadify/uploadify.swf')}}",
+                'uploader': "{{ url('admin/upload') }}",
                 'onUploadSuccess' : function(file, data, response) {
                     $('input[name=art_thumb]').val(data);
-                    var url ='{{ asset('storage/uploads') }}';
+                    var url ='{{ asset('storage/app/public/uploads') }}';
                     $('#art_thumb_img').attr('src',url+'/'+data);
-                                  // alert(data);
                 }
             });
         });

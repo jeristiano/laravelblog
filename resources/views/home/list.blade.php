@@ -12,7 +12,7 @@
              @foreach($data as $d)
              <h2>{{$d->art_title}}</h2>
              <p class="dateview"><span>发布时间：{{date('Y-m-d',$d->art_time)}}</span><span>作者：{{$d->art_author}}</span><span>分类：[<a href="{{url('cate/'.$field->cate_id)}}">{{$field->cate_name}}</a>]</span></p>
-             <figure><img src="{{asset('storage/uploads').'/'.$d->art_thumb}}"></figure>
+             <figure><img src="{{asset('storage/app/public/uploads').'/'.$d->art_thumb}}"></figure>
              <ul class="nlist">
                  <p>{{$d->art_description}}</p>
                  <a title="{{$d->art_title}}" href="{{url('article/'.$d->art_id)}}" target="_blank" class="readmore">阅读全文>></a>

@@ -29,6 +29,7 @@ class Category extends Model
 
     private function _getCateTree($data, $pid, $cid, $cname, $deep = 0)
     {
+        $arr=[];
         foreach ($data as $k => $v) {
             if ($v->$pid == $deep) {
                 $data[$k]['_' . $cname] = $data[$k][$cname];

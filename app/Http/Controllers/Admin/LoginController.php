@@ -56,6 +56,7 @@ class LoginController extends CommonController
                 $request->session()->put(['admin' => $admin]);
                 return redirect('admin/index');
             }
+
         }
         return view('admin.login');
     }
