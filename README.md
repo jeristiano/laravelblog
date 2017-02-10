@@ -24,8 +24,8 @@ laravelblog是一个轻型博客项目,使用laravel 5.2 编写
 ![](http://okxzkjtey.bkt.clouddn.com/aritcle.png)
 
  
+ -----------------------------
  
-
  ##  总结 | summary 
 
   学习和使用laravel框架都是一种享受,正如作者Taylor Otwell如下介绍laravel框架:
