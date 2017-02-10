@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Requests;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Model\User;
