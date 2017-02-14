@@ -9,7 +9,7 @@ laravelblog是一个轻型博客项目,使用laravel 5.2 编写
 
 `后台登录`
 
-![](http://okxzkjtey.bkt.clouddn.com/lalogin.png?imageslim)
+![](http://okxzkjtey.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG)
 
 `后台页面`
 
