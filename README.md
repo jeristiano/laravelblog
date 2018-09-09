@@ -1,6 +1,5 @@
 ## 介绍 | Introduction
 laravelblog是一个轻型博客项目,使用laravel 5.2 编写
-> 最想说的是: laravel是最好的php框架(主观没有之一)
 ## 环境配置 | Configuration 
 - php >=5.5.9
 - laravel php framework 5.2
